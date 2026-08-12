@@ -24,7 +24,7 @@ hl.monitor({
 hl.monitor({
     output   = "eDP-1",
     mode     = "1920x1200@144",
-    position = "auto",
+    position = "0x0",
     scale    = "1",
     vrr      = true,
 
@@ -49,7 +49,7 @@ hl.monitor({
 ---------------------
 
 -- Set programs that you use
-local terminal    = "ghostty"
+local terminal    = "kitty"
 local fileManager = "dolphin"
 local menu        = "hyprlauncher"
 local browser     = "zen-browser"
@@ -66,8 +66,8 @@ hl.on("hyprland.start", function()
 
 -- Programs
 hl.exec_cmd("hyprpaper")
-hl.exec_cmd("hyprlock")
 hl.exec_cmd("wayle panel start")
+hl.exec_cmd("hyprlock")
 hl.exec_cmd("hypridle")
 hl.exec_cmd("fdm --hidden")
 hl.exec_cmd(terminal)
@@ -78,6 +78,7 @@ hl.exec_cmd("systemctl --user start hyprland-session.target")
 hl.exec_cmd("systemctl --user enable --now hyprpolkitagent")
 hl.exec_cmd("kded6 &")
 hl.exec_cmd("sudo systemctl enable --now tailscaled")
+hl.exec_cmd("sleep 30 && sshfs hypr@battlestation:/ /Battlestation")
 
 -- Clipboard
 hl.exec_cmd("wl-paste --type text --watch cliphist store")
@@ -346,7 +347,7 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + D", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen",  action = "toggle" }))
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle layout only
+hl.bind(mainMod .. " + W", hl.dsp.layout("togglesplit"))    -- dwindle layout only
 
 -- Move focus 
  hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -478,8 +479,7 @@ hl.workspace_rule({
     monitor = "eDP-2",
 })
 
--- Custom Window Rules
-
+-- Fullscreen Window Rules
 
 hl.window_rule({
     fullscreen = true,
@@ -496,6 +496,7 @@ hl.window_rule({
     }
 })
 
+
 hl.window_rule({
     fullscreen = true,
     match = {
@@ -503,13 +504,26 @@ hl.window_rule({
     }
 })
 
+hl.window_rule({
+    fullscreen = true,
+    match = {
+        class = "Emby Theater"
+    }
+})
 
-
-
+-- Float Window Rules
 
 hl.window_rule({
     float = true,
     match = {
         class = "com.shellyorg.shelly"
+    }
+})
+
+
+hl.window_rule({
+    float = true,
+    match = {
+        class = "org.kde.partitionmanager"
     }
 })
