@@ -1,0 +1,146 @@
+[general]
+font-sans = "JetBrainsMono Nerd Font"
+font-mono = "JetBrainsMono Nerd Font"
+
+[bar]
+scale = 0.800000011920929
+module-gap = 0.4000000059604645
+background-opacity = 50
+button-variant = "basic"
+button-bg-opacity = 0
+button-icon-size = 0.8999999761581421
+dropdown-opacity = 90
+
+[[bar.layout]]
+monitor = "eDP-2"
+show = true
+left = [
+    "dashboard",
+    "battery",
+    "clock",
+]
+center = ["hyprland-workspaces"]
+right = [
+    "systray",
+    "custom-clipboard",
+    "notifications",
+    "idle-inhibit",
+    "hyprsunset",
+    "volume",
+    "bluetooth",
+    "network",
+]
+
+[styling]
+theming-monitor = "eDP-2"
+
+[styling.palette]
+bg = "#000000"
+surface = "#000000"
+elevated = "#000000"
+fg = "#ffffff"
+fg-muted = "#c0bfbc"
+primary = "#8d8414"
+red = "#8d8414"
+yellow = "#8d8414"
+green = "#8d8414"
+blue = "#8d8414"
+
+[modules.battery]
+icon-show = false
+
+[modules.bluetooth]
+label-show = false
+
+[modules.cava]
+framerate = 144
+direction = "mirror"
+bar-width = 3
+
+[modules.clock]
+icon-show = false
+
+[modules.cpu]
+poll-interval-ms = 1000
+
+[modules.dashboard]
+border-color = "accent"
+icon-bg-color = "accent"
+
+[modules.hyprland-workspaces]
+workspace-padding = 0.30000001192092896
+icon-size = 0.75
+label-size = 0.800000011920929
+active-indicator = "underline"
+active-color = "fg-muted"
+border-color = "accent"
+
+[modules.hyprsunset]
+temperature = 6000
+label-show = false
+
+[modules.idle-inhibit]
+startup-duration = 0
+label-show = false
+
+[modules.network]
+label-show = false
+
+[modules.netstat]
+poll-interval-ms = 1000
+
+[modules.notifications]
+label-show = false
+popup-gap = 4.0
+popup-monitor = "eDP-2"
+popup-urgency-bar = "none"
+
+[modules.ram]
+poll-interval-ms = 1000
+
+[modules.separator]
+color = "accent"
+
+[modules.volume]
+label-show = false
+right-click = "pavucontrol"
+scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
+scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
+
+[modules.weather]
+location = "Calabogie"
+
+[[modules.custom]]
+id = "clipboard"
+command = "cliphist list | wc -l"
+mode = "poll"
+interval-ms = 2000
+restart-policy = "never"
+restart-interval-ms = 1000
+format = "{{ output }}"
+hide-if-empty = false
+icon-name = "edit-copy-symbolic"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "auto"
+label-show = false
+label-color = "auto"
+label-max-length = 0
+button-bg-color = "bg-surface-elevated"
+border-show = false
+border-color = "auto"
+left-click = "cliphist list | walker -d | cliphist decode | wl-copy"
+right-click = ""
+middle-click = ""
+scroll-up = ""
+scroll-down = ""
+
+[osd]
+position = "top-right"
+duration = 1500
+monitor = "eDP-2"
+margin = 0.0
+border = false
+
+[wallpaper]
+engine-enabled = false
