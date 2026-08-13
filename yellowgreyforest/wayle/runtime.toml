@@ -12,7 +12,7 @@ button-icon-size = 0.8999999761581421
 dropdown-opacity = 90
 
 [[bar.layout]]
-monitor = "eDP-2"
+monitor = "*"
 show = true
 left = [
     "dashboard",
@@ -76,7 +76,7 @@ active-color = "fg-muted"
 border-color = "accent"
 
 [modules.hyprsunset]
-temperature = 6000
+temperature = 5500
 label-show = false
 
 [modules.idle-inhibit]
