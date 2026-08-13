@@ -5,7 +5,7 @@ font-mono = "JetBrainsMono Nerd Font"
 [bar]
 scale = 0.800000011920929
 module-gap = 0.4000000059604645
-background-opacity = 50
+background-opacity = 60
 button-variant = "basic"
 button-bg-opacity = 0
 button-icon-size = 0.8999999761581421
