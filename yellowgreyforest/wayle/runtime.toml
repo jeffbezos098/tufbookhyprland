@@ -94,6 +94,7 @@ poll-interval-ms = 1000
 
 [modules.notifications]
 label-show = false
+popup-position = "bottom-center"
 popup-gap = 4.0
 popup-monitor = "eDP-2"
 popup-urgency-bar = "none"
@@ -139,7 +140,6 @@ scroll-up = ""
 scroll-down = ""
 
 [osd]
-position = "top-right"
 duration = 1500
 monitor = "eDP-2"
 margin = 0.0
