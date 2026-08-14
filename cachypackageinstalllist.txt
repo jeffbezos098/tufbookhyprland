@@ -30,12 +30,14 @@ systemctl --user enable --now dmemcg-booster-user
 
 -- regular programs
 
-sudo pacman -Sy emby-theater spotify-launcher yay nvtop btop code dunst ark ventoy easyeffects rtkit ghostty hyprlock hypridle hyprpicker hyprshot hyprlauncher hyprpaper hyprcursor hyprsunset adwaita-icon-theme adwaita-qt6 adwaita-qt5 breeze breeze-gtk playerctl brightnessctl vimix-cursors cliphist walker fastfetch flatpak discord steam lutris prismlauncher fuse2 goverlay mangojuice kio-admin kio-extras nwg-look qt6ct qt5ct obs-studio orchis-theme partitionmanager pavucontrol dolphin-emu waypaper solaar localsend vulkan-tools shelly vlc gwenview winetricks protontricks wl-clipboard 7zip base-devel freedownloadmanager gamescope
+sudo pacman -Sy emby-theater spotify-launcher yay nvtop btop code dunst ventoy rtkit ghostty hyprlock hypridle hyprpicker hyprshot hyprlauncher hyprpaper hyprcursor hyprsunset adwaita-icon-theme adwaita-qt6 adwaita-qt5 breeze breeze-gtk playerctl brightnessctl cliphist walker fastfetch flatpak discord prismlauncher fuse2 goverlay mangojuice kio-admin kio-extras nwg-look qt6ct qt5ct obs-studio orchis-theme partitionmanager pavucontrol waypaper solaar vulkan-tools shelly vlc gwenview wl-clipboard 7zip freedownloadmanager
 
 
 -- yay
-yay -Sy wayle-bin zen-browser-bin millennium asusctl rog-control-center adwaita-dark
+yay -Sy qdirstat wayle-bin zen-browser-bin millennium adwaita-dark
 
+-- yay tufbook
+asusctl rog-control-center
 
 -- flatpak
 flatpak install bazaar 
