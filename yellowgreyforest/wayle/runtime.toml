@@ -1,6 +1,7 @@
 [general]
 font-sans = "JetBrainsMono Nerd Font"
 font-mono = "JetBrainsMono Nerd Font"
+tearing-mode = true
 
 [bar]
 scale = 0.800000011920929

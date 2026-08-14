@@ -78,6 +78,9 @@ hl.exec_cmd("kded6 &")
 hl.exec_cmd("sudo systemctl enable --now tailscaled")
 hl.exec_cmd("sleep 30 && sshfs hypr@battlestation:/ /Battlestation")
 
+-- Bar
+hl.exec_cmd("~/.config/hypr/scripts/wayle-autohide.fish")
+
 -- Clipboard
 hl.exec_cmd("wl-paste --type text --watch cliphist store")
 hl.exec_cmd("wl-paste --type image --watch cliphist store")
@@ -149,8 +152,8 @@ hl.env("QT_SCALE_FACTOR_ROUNDING_POLICY", "PassThrough")
 
 hl.config({
     general = {
-        gaps_in  = 2,
-        gaps_out = 4,
+        gaps_in  = 4,
+        gaps_out = 8,
 
         border_size = 0,
 
@@ -169,8 +172,8 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 5,
-        rounding_power = 5,
+        rounding       = 4,
+        rounding_power = 4,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
