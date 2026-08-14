@@ -149,8 +149,8 @@ hl.env("QT_SCALE_FACTOR_ROUNDING_POLICY", "PassThrough")
 
 hl.config({
     general = {
-        gaps_in  = 0,
-        gaps_out = 0,
+        gaps_in  = 2,
+        gaps_out = 4,
 
         border_size = 0,
 
@@ -169,8 +169,8 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 0,
-        rounding_power = 0,
+        rounding       = 10,
+        rounding_power = 10,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
@@ -185,8 +185,8 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 4,
-            passes    = 2,
+            size      = 3,
+            passes    = 3,
             vibrancy  = 0.1696,
         },
     },
@@ -516,6 +516,13 @@ hl.workspace_rule({
 hl.window_rule({
     fullscreen = true,
     match = {
+        class = "steam"
+    }
+})
+
+hl.window_rule({
+    fullscreen = true,
+    match = {
         class = "steam_app_.*"
     }
 })
@@ -562,11 +569,11 @@ hl.window_rule({
 
 
 
-
+-- Window location
 
 hl.window_rule({
     workspace = "4 silent",
     match = {
-        class = "kitty"
+        class = "steam"
     }
 })
