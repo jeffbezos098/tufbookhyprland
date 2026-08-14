@@ -559,3 +559,14 @@ hl.window_rule({
         class = "org.kde.partitionmanager"
     }
 })
+
+
+
+
+
+hl.window_rule({
+    workspace = "4 silent",
+    match = {
+        class = "kitty"
+    }
+})
