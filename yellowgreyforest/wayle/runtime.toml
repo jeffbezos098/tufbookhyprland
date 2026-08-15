@@ -6,7 +6,7 @@ tearing-mode = true
 [bar]
 scale = 0.800000011920929
 inset-edge = 0.25
-inset-ends = 22.5
+inset-ends = 20.0
 padding-ends = 1.0
 module-gap = 0.25
 background-opacity = 60

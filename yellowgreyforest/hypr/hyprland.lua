@@ -53,6 +53,7 @@ local terminal    = "kitty"
 local fileManager = "dolphin"
 local menu        = "hyprlauncher"
 local browser     = "zen-browser"
+
 -------------------
 ---- AUTOSTART ----
 -------------------
@@ -79,7 +80,7 @@ hl.exec_cmd("sudo systemctl enable --now tailscaled")
 hl.exec_cmd("sleep 30 && sshfs hypr@battlestation:/ /Battlestation")
 
 -- Bar
-hl.exec_cmd("~/.config/hypr/scripts/wayle-autohide.fish")
+-- hl.exec_cmd("~/.config/hypr/scripts/wayle-autohide.fish")
 
 -- Clipboard
 hl.exec_cmd("wl-paste --type text --watch cliphist store")
@@ -153,7 +154,7 @@ hl.env("QT_SCALE_FACTOR_ROUNDING_POLICY", "PassThrough")
 hl.config({
     general = {
         gaps_in  = 4,
-        gaps_out = 8,
+        gaps_out = 4,
 
         border_size = 0,
 
