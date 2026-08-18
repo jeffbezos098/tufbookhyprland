@@ -6,7 +6,7 @@ tearing-mode = true
 [bar]
 scale = 0.800000011920929
 inset-edge = 0.25
-inset-ends = 20.0
+inset-ends = 25.0
 padding-ends = 1.0
 module-gap = 0.25
 background-opacity = 60
@@ -14,7 +14,7 @@ rounding = "lg"
 button-variant = "basic"
 button-bg-opacity = 0
 button-icon-size = 0.8999999761581421
-dropdown-opacity = 90
+dropdown-opacity = 95
 
 [[bar.layout]]
 monitor = "*"

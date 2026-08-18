@@ -7,6 +7,8 @@
 -- Create your files separately and then require them like this:
 -- require("myColors")
 
+require("hyprland-gui")
+
 ------------------
 ---- MONITORS ----
 
@@ -77,7 +79,7 @@ hl.exec_cmd("systemctl --user start hyprland-session.target")
 hl.exec_cmd("systemctl --user enable --now hyprpolkitagent")
 hl.exec_cmd("kded6 &")
 hl.exec_cmd("sudo systemctl enable --now tailscaled")
-hl.exec_cmd("sleep 30 && sshfs hypr@battlestation:/ /Battlestation")
+-- hl.exec_cmd("sleep 30 && sshfs hypr@battlestation:/ ~/Battlestation")
 
 -- Bar
 -- hl.exec_cmd("~/.config/hypr/scripts/wayle-autohide.fish")
@@ -153,8 +155,8 @@ hl.env("QT_SCALE_FACTOR_ROUNDING_POLICY", "PassThrough")
 
 hl.config({
     general = {
-        gaps_in  = 4,
-        gaps_out = 4,
+        gaps_in  = 2,
+        gaps_out = 3,
 
         border_size = 0,
 
@@ -517,12 +519,6 @@ hl.workspace_rule({
 
 -- Fullscreen Window Rules
 
-hl.window_rule({
-    fullscreen = true,
-    match = {
-        class = "steam"
-    }
-})
 
 hl.window_rule({
     fullscreen = true,
@@ -581,3 +577,6 @@ hl.window_rule({
         class = "steam"
     }
 })
+
+-- HyprMod managed settings
+require("hyprland-gui")
