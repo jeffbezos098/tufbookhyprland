@@ -3,14 +3,14 @@
 -- EDIT THIS CONFIG ACCORDING TO THE WIKI INSTRUCTIONS.  --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
--- You can (and should!!) split this configuration into multiple files
--- Create your files separately and then require them like this:
--- require("myColors")
+-- Require
 
+-- Hyprmod
 require("hyprland-gui")
 
-------------------
----- MONITORS ----
+
+
+-- Monitors
 
 hl.monitor({
     output   = "eDP-2",
@@ -46,9 +46,8 @@ hl.monitor({
 })
 
 
----------------------
----- MY PROGRAMS ----
----------------------
+
+-- Programs
 
 -- Set programs that you use
 local terminal    = "kitty"
@@ -56,9 +55,9 @@ local fileManager = "dolphin"
 local menu        = "hyprlauncher"
 local browser     = "zen-browser"
 
--------------------
----- AUTOSTART ----
--------------------
+
+
+-- Autostart
 
 -- Startup
 
@@ -166,7 +165,7 @@ hl.config({
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = false,
+        resize_on_border = true,
 
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = true,
@@ -331,27 +330,19 @@ hl.device({
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
--- Example special workspace (scratchpad)
--- hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
--- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"),      { locked = true, repeating = true })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2+"),                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2s-"),                  { locked = true, repeating = true })
-
-
+hl.bind("XF86MonBrightnessDown",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2-"),                  { locked = true, repeating = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
-
-
 
 -- Windows
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
@@ -382,10 +373,7 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
-
-
--- Programs
-hl.bind("ALT + SPACE", hl.dsp.exec_cmd(menu))
+-- Program Lanuch
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("steam"))
@@ -394,20 +382,27 @@ hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("code ~/.config/hypr/hyprland.lua"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("emby-theater"))
 
+-- Hyprlauncher
+hl.bind("ALT + SPACE", hl.dsp.exec_cmd(menu))
 
--- Background Programs
+-- Hyprlock
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+
+-- Hyprshot
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m region -o /home/hypr/Pictures/Screenshots"))
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m window -o /home/hypr/Pictures/Screenshots"))
 hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m output -o /home/hypr/Pictures/Screenshots"))
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("cliphist list | walker -d | cliphist decode | wl-copy"))
+
+-- Walker
+hl.bind("ALT + C", hl.dsp.exec_cmd("cliphist list | walker -d | cliphist decode | wl-copy"))
+
+-- Wayle Bar
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("wayle panel toggle"))
 
 -- Power
 hl.bind(mainMod .. " + CTRL + SHIFT + DELETE", hl.dsp.exec_cmd("shutdown now"))
 hl.bind(mainMod .. " + SHIFT + DELETE", hl.dsp.exec_cmd("reboot"))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-
-
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -462,7 +457,7 @@ hl.window_rule({
 })
 
 
--- Custom Workspace Rules
+-- Permanent Workspace 
 
 -- eDP-2
 
@@ -578,5 +573,3 @@ hl.window_rule({
     }
 })
 
--- HyprMod managed settings
-require("hyprland-gui")
