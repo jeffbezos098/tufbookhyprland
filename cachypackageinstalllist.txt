@@ -34,7 +34,7 @@ sudo pacman -Sy emby-theater spotify-launcher yay nvtop btop code dunst ventoy r
 
 
 -- yay
-yay -Sy qdirstat wayle-bin zen-browser-bin millennium adwaita-dark
+yay -Sy hyprmod qdirstat wayle-bin zen-browser-bin millennium adwaita-dark
 
 -- yay tufbook
 asusctl rog-control-center
