@@ -10,7 +10,6 @@ local browser     = "zen-browser"
 
 
 
-
 --------------
 -- Monitors --
 
@@ -48,7 +47,6 @@ hl.monitor({
 
 
 
-
 ---------------
 -- Autostart --
 
@@ -66,10 +64,10 @@ hl.exec_cmd(terminal)
 
 -- Services
 hl.exec_cmd("systemctl --user start hyprland-session.target")
-hl.exec_cmd("systemctl --user enable --now hyprpolkitagent")
+hl.exec_cmd("systemctl --user start plasma-polkit-agent")
+-- hl.exec_cmd("systemctl --user start hyprpolkitagent")
 hl.exec_cmd("kded6 &")
 hl.exec_cmd("sudo systemctl enable --now tailscaled")
--- hl.exec_cmd("sleep 30 && sshfs hypr@battlestation:/ ~/Battlestation")
 
 -- Clipboard
 hl.exec_cmd("wl-paste --type text --watch cliphist store")
@@ -80,13 +78,13 @@ end)
 -- Shutdown
 
 hl.on("hyprland.shutdown", function()
+        os.execute("umount ~/Battlestation")
     os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
     -- uses a blocking exec function and sleeps a bit to give things time to        
     -- you might also want to kill troublesome/crashing non-systemd background services here:
     -- os.execute("pkill wallpaperthing; systemctl --user stop hyprland-session.target && sleep 0.1")
 
 end)
-
 
 
 
@@ -110,7 +108,6 @@ hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "0")
 hl.env("QT_ENABLE_HIGHDPI_SCALING", "1")
 hl.env("QT_SCALE_FACTOR", "1")
 hl.env("QT_SCALE_FACTOR_ROUNDING_POLICY", "PassThrough")
-
 
 
 
@@ -147,7 +144,6 @@ hl.device({
     name        = "epic-mouse-v1",
     sensitivity = -0.5,
 })
-
 
 
 
@@ -229,7 +225,6 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("wayle panel toggle"))
 hl.bind(mainMod .. " + CTRL + SHIFT + DELETE", hl.dsp.exec_cmd("shutdown now"))
 hl.bind(mainMod .. " + SHIFT + DELETE", hl.dsp.exec_cmd("reboot"))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-
 
 
 
@@ -359,7 +354,6 @@ hl.config({
 
 
 
-
 -----------------
 -- Permissions --
 
@@ -390,7 +384,6 @@ hl.config({
         disable_watchdog_warning = true,
     },
 })
-
 
 
 
