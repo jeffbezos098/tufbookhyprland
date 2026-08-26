@@ -10,17 +10,15 @@
     "title",
     "os",
     "kernel",
-    "uptime",
-    "packages",
-    "display",
     "de",
     "wm",
-    "wmtheme",
-    "terminal",
+    "uptime",
+    "packages",
     "cpu",
     "gpu",
     "memory",
     "swap",
-    "disk"
+    "disk",
+    "display"
   ]
 }

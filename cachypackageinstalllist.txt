@@ -30,7 +30,7 @@ systemctl --user enable --now dmemcg-booster-user
 
 -- regular programs
 
-sudo pacman -S emby-theater sshfs spotify-launcher yay nvtop btop code dunst ventoy ghostty hyprlock hypridle hyprpicker hyprshot hyprlauncher hyprpaper hyprcursor hyprsunset adwaita-icon-theme adwaita-qt6 adwaita-qt5 breeze breeze-gtk playerctl brightnessctl cliphist walker fastfetch flatpak discord prismlauncher fuse2 goverlay mangojuice kio-admin kio-extras nwg-look qt6ct qt5ct obs-studio orchis-theme partitionmanager pavucontrol waypaper solaar vulkan-tools vlc gwenview wl-clipboard 7zip freedownloadmanager
+sudo pacman -S emby-theater ddcutil sshfs spotify-launcher yay nvtop btop code dunst ventoy ghostty hyprlock hypridle hyprpicker hyprshot hyprlauncher hyprpaper hyprcursor hyprsunset adwaita-icon-theme adwaita-qt6 adwaita-qt5 breeze breeze-gtk playerctl brightnessctl cliphist walker fastfetch flatpak discord prismlauncher fuse2 goverlay mangojuice kio-admin kio-extras nwg-look qt6ct qt5ct obs-studio orchis-theme partitionmanager pavucontrol waypaper solaar vulkan-tools vlc gwenview wl-clipboard 7zip freedownloadmanager
 
 
 -- yay

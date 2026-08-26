@@ -19,13 +19,14 @@ hl.monitor({
     position = "0x0",
     scale    = "1",
     vrr      = true, 
---  disabled = true,
+    
+    --  disabled = true,
 
 })
 
 hl.monitor({
     output   = "eDP-1",
-    mode     = "1920x1200@144",
+    mode     = "1920x1200@90",
     position = "0x0",
     scale    = "1",
     vrr      = true,
@@ -121,7 +122,9 @@ hl.config({
         kb_model   = "",
         kb_options = "",
         kb_rules   = "",
-
+        
+        numlock_by_default = true,
+        
         follow_mouse = 1,
 
         sensitivity = .25,
@@ -233,8 +236,8 @@ hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("command -v hyprshutdown >/de
 
 hl.config({
     general = {
-        gaps_in  = 2,
-        gaps_out = 3,
+        gaps_in  = 1,
+        gaps_out = 1,
 
         border_size = 0,
 
@@ -253,8 +256,8 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 4,
-        rounding_power = 4,
+        rounding       = 0,
+        rounding_power = 0,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
@@ -507,13 +510,6 @@ hl.window_rule({
     }
 })
 
-
-hl.window_rule({
-    fullscreen = true,
-    match = {
-        class = "rpcs3"
-    }
-})
 
 hl.window_rule({
     fullscreen = true,
