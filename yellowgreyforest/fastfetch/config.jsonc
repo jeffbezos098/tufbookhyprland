@@ -8,17 +8,17 @@
 
   "modules": [
     "title",
+    "uptime",
     "os",
     "kernel",
     "de",
     "wm",
-    "uptime",
     "packages",
+    "display",
     "cpu",
     "gpu",
     "memory",
     "swap",
-    "disk",
-    "display"
+    "disk"
   ]
 }

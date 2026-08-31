@@ -60,8 +60,8 @@ hl.exec_cmd("wayle panel start")
 hl.exec_cmd("hyprlock")
 hl.exec_cmd("hypridle")
 hl.exec_cmd("fdm --hidden")
-hl.exec_cmd(terminal)
--- hl.exec_cmd("discord")
+hl.exec_cmd("kitty --hidden")
+hl.exec_cmd("discord --start-minimized")
 
 -- Services
 hl.exec_cmd("systemctl --user start hyprland-session.target")
@@ -79,7 +79,7 @@ end)
 -- Shutdown
 
 hl.on("hyprland.shutdown", function()
-        os.execute("umount ~/Battlestation")
+    os.execute("umount ~/Battlestation")
     os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
     -- uses a blocking exec function and sleeps a bit to give things time to        
     -- you might also want to kill troublesome/crashing non-systemd background services here:
@@ -127,7 +127,7 @@ hl.config({
         
         follow_mouse = 1,
 
-        sensitivity = .25,
+        sensitivity = .2,
 
         touchpad = {
             natural_scroll = true,
@@ -164,10 +164,9 @@ hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2+"),
 hl.bind("XF86MonBrightnessDown",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2-"),                  { locked = true, repeating = true })
 
 -- Requires playerctl
-hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+hl.bind("ALT + right",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
+hl.bind("ALT + down", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("ALT + left",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
 -- Windows
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())

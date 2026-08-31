@@ -1,6 +1,6 @@
 [general]
-font-sans = "JetBrainsMono Nerd Font"
-font-mono = "JetBrainsMono Nerd Font"
+font-sans = "JetBrainsMono Nerd Font Propo"
+font-mono = "JetBrainsMono Nerd Font Propo"
 tearing-mode = true
 
 [bar]
@@ -8,7 +8,6 @@ scale = 0.800000011920929
 padding-ends = 1.0
 module-gap = 0.25
 background-opacity = 50
-rounding = "sm"
 button-variant = "basic"
 button-bg-opacity = 0
 button-icon-size = 0.8999999761581421
