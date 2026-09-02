@@ -53,18 +53,13 @@ hl.monitor({
 hl.on("hyprland.start", function()
 
 -- Programs
-hl.exec_cmd("hyprpaper")
 hl.exec_cmd("hyprlock")
-hl.exec_cmd("wayle panel start")
-hl.exec_cmd("hypridle")
 hl.exec_cmd("fdm --hidden")
 hl.exec_cmd("kitty --hidden")
 hl.exec_cmd("discord --start-minimized")
 
 -- Services
 hl.exec_cmd("systemctl --user start hyprland-session.target")
-hl.exec_cmd("systemctl --user start plasma-polkit-agent")
--- hl.exec_cmd("systemctl --user enable --now hyprpolkitagent")
 hl.exec_cmd("kded6 &")
 hl.exec_cmd("sudo systemctl enable --now tailscaled")
 
@@ -526,28 +521,26 @@ hl.workspace_rule({
 })
 
 
+-- Custom Window Rules by Application
 
-
--- Fullscreen Window Rules
-
-
+-- Discord
 hl.window_rule({
-    fullscreen = true,
+    monitor = "HDMI-A-1",
+    opacity = "0.8 0.8",
     match = {
-        class = "steam_app_.*"
+        class = "discord"
     }
 })
 
-
+-- Dolphin
 hl.window_rule({
-    fullscreen = true,
+    opacity = "0.8 0.8",
     match = {
-        class = "xenia_edge"
+        class = "org.kde.dolphin"
     }
 })
 
-
-
+-- Emby
 hl.window_rule({
     fullscreen = true,
     match = {
@@ -555,21 +548,37 @@ hl.window_rule({
     }
 })
 
--- Float Window Rules
-
+-- Partition Manager
 hl.window_rule({
     float = true,
-    match = {
-        class = "com.shellyorg.shelly"
-    }
-})
-
-
-hl.window_rule({
-    float = true,
+    size = { 1200, 700},
     match = {
         class = "org.kde.partitionmanager"
     }
 })
 
+-- Shelly
+hl.window_rule({
+    float = true,
+    size = { 1200, 700},
+    opacity = "0.75 0.75",
+    match = {
+        class = "com.shellyorg.shelly"
+    }
+})
 
+-- Steam Games
+hl.window_rule({
+    fullscreen = true,
+    match = {
+        class = "steam_app_.*"
+    }
+})
+
+-- Xenia
+hl.window_rule({
+    fullscreen = true,
+    match = {
+        class = "xenia_edge"
+    }
+})

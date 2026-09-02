@@ -1,4 +1,3 @@
-
 --------------
 -- Programs --
 
@@ -55,18 +54,13 @@ hl.monitor({
 hl.on("hyprland.start", function()
 
 -- Programs
-hl.exec_cmd("hyprpaper")
-hl.exec_cmd("wayle panel start")
 hl.exec_cmd("hyprlock")
-hl.exec_cmd("hypridle")
 hl.exec_cmd("fdm --hidden")
 hl.exec_cmd("kitty --hidden")
 hl.exec_cmd("discord --start-minimized")
 
 -- Services
 hl.exec_cmd("systemctl --user start hyprland-session.target")
-hl.exec_cmd("systemctl --user start plasma-polkit-agent")
--- hl.exec_cmd("systemctl --user start hyprpolkitagent")
 hl.exec_cmd("kded6 &")
 hl.exec_cmd("sudo systemctl enable --now tailscaled")
 
@@ -76,14 +70,12 @@ hl.exec_cmd("wl-paste --type image --watch cliphist store")
 
 end)
 
+
 -- Shutdown
 
 hl.on("hyprland.shutdown", function()
     os.execute("umount ~/Battlestation")
     os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
-    -- uses a blocking exec function and sleeps a bit to give things time to        
-    -- you might also want to kill troublesome/crashing non-systemd background services here:
-    -- os.execute("pkill wallpaperthing; systemctl --user stop hyprland-session.target && sleep 0.1")
 
 end)
 
@@ -175,20 +167,20 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen",  acti
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.layout("togglesplit"))    -- dwindle layout only
 
 -- Move focus 
- hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
- hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
- hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
- hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
 -- Scroll through existing workspaces
- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
- hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + ALT + mouse:272", hl.dsp.window.resize(), { mouse = true })
--- hl.bind("mouse:276", hl.dsp.window.drag(),   { mouse = true })
--- hl.bind("mouse:275", hl.dsp.window.resize(), { mouse = true })
+hl.bind("mouse:276", hl.dsp.window.drag(),   { mouse = true })
+hl.bind("mouse:275", hl.dsp.window.resize(), { mouse = true })
 
 
 for i = 1, 10 do
@@ -214,7 +206,7 @@ hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- Hyprshot
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m region -o /home/hypr/Pictures/Screenshots"))
-hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m window -o /home/hypr/Pictures/Screenshots"))
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot -m window -o /home/hypr/Pictures/Screenshots"))
 hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m output -o /home/hypr/Pictures/Screenshots"))
 
 -- Walker
@@ -224,7 +216,7 @@ hl.bind("ALT + C", hl.dsp.exec_cmd("cliphist list | walker -d | cliphist decode 
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("wayle panel toggle"))
 
 -- Power
-hl.bind(mainMod .. " + CTRL + SHIFT + DELETE", hl.dsp.exec_cmd("shutdown now"))
+hl.bind(mainMod .. " + CTRL + SHIFT + DELETE", hl.dsp.exec_cmd("systemctl poweroff"))
 hl.bind(mainMod .. " + SHIFT + DELETE", hl.dsp.exec_cmd("reboot"))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
@@ -436,7 +428,7 @@ hl.window_rule({
 })
 
 
--- Permanent Workspace 
+-- Permanent Workspace Rules
 
 -- eDP-2
 
@@ -491,25 +483,27 @@ hl.workspace_rule({
 })
 
 
--- Fullscreen Window Rules
 
+-- Custom Window Rules by Application
 
+-- Discord
 hl.window_rule({
-    fullscreen = true,
+    workspace = "4 silent",
+    opacity = "0.75 0.75",
     match = {
-        class = "steam_app_.*"
+        class = "discord"
     }
 })
 
-
+-- Dolphin
 hl.window_rule({
-    fullscreen = true,
+    opacity = "0.7 0.7",
     match = {
-        class = "xenia_edge"
+        class = "org.kde.dolphin"
     }
 })
 
-
+-- Emby
 hl.window_rule({
     fullscreen = true,
     match = {
@@ -517,21 +511,37 @@ hl.window_rule({
     }
 })
 
--- Float Window Rules
-
+-- Partition Manager
 hl.window_rule({
     float = true,
-    match = {
-        class = "com.shellyorg.shelly"
-    }
-})
-
-
-hl.window_rule({
-    float = true,
+    size = { 1440, 900},
     match = {
         class = "org.kde.partitionmanager"
     }
 })
 
+-- Shelly
+hl.window_rule({
+    float = true,
+    size = { 1440, 900},
+    opacity = "0.75 0.75",
+    match = {
+        class = "com.shellyorg.shelly"
+    }
+})
 
+-- Steam Games
+hl.window_rule({
+    fullscreen = true,
+    match = {
+        class = "steam_app_.*"
+    }
+})
+
+-- Xenia
+hl.window_rule({
+    fullscreen = true,
+    match = {
+        class = "xenia_edge"
+    }
+})
