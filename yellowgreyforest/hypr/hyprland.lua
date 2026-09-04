@@ -8,7 +8,6 @@ local menu        = "hyprlauncher"
 local browser     = "zen-browser"
 
 
-
 --------------
 -- Monitors --
 
@@ -46,7 +45,6 @@ hl.monitor({
 })
 
 
-
 ---------------
 -- Autostart --
 
@@ -80,7 +78,6 @@ hl.on("hyprland.shutdown", function()
 end)
 
 
-
 ---------
 -- ENV --
 
@@ -101,7 +98,6 @@ hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "0")
 hl.env("QT_ENABLE_HIGHDPI_SCALING", "1")
 hl.env("QT_SCALE_FACTOR", "1")
 hl.env("QT_SCALE_FACTOR_ROUNDING_POLICY", "PassThrough")
-
 
 
 -----------
@@ -139,7 +135,6 @@ hl.device({
     name        = "epic-mouse-v1",
     sensitivity = -0.5,
 })
-
 
 
 --------------
@@ -221,7 +216,6 @@ hl.bind(mainMod .. " + SHIFT + DELETE", hl.dsp.exec_cmd("reboot"))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
 
-
 -------------------
 -- Look and Feel --
 
@@ -282,7 +276,7 @@ hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}
 hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } })
 
 -- Default springs
-hl.curve("easy", { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
+hl.curve("easy", { type = "spring", mass = 0.8, stiffness = 350, dampening = 25, })
 
 hl.animation({ leaf = "global",        enabled = true, speed = 15,   bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true, speed = 8,    bezier = "easeOutQuint" })
@@ -347,7 +341,6 @@ hl.config({
 })
 
 
-
 -----------------
 -- Permissions --
 
@@ -366,8 +359,6 @@ hl.config({
  hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
 
-
-
 -----------
  -- Misc --
 
@@ -378,7 +369,6 @@ hl.config({
         disable_watchdog_warning = true,
     },
 })
-
 
 
 ----------------------------
@@ -407,7 +397,6 @@ hl.window_rule({
 
     no_focus = true,
 })
-
 
 
 -- Layer rules also return a handle.
@@ -483,7 +472,6 @@ hl.workspace_rule({
 })
 
 
-
 -- Custom Window Rules by Application
 
 -- Discord
@@ -511,10 +499,20 @@ hl.window_rule({
     }
 })
 
+-- Gearlever
+hl.window_rule({
+    opacity = "0.75 0.75",
+    match = {
+        class = "it.mijorus.gearlever"
+    }
+})
+
+
 -- Partition Manager
 hl.window_rule({
     float = true,
     size = { 1440, 900},
+    opacity = "0.75 0.75",
     match = {
         class = "org.kde.partitionmanager"
     }
