@@ -6,6 +6,7 @@ tearing-mode = true
 [bar]
 scale = 0.800000011920929
 module-gap = 0.25
+location = "bottom"
 background-opacity = 65
 button-variant = "basic"
 button-bg-opacity = 0

@@ -218,8 +218,8 @@ hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("command -v hyprshutdown >/de
 
 hl.config({
     general = {
-        gaps_in  = 1,
-        gaps_out = 1,
+        gaps_in  = 0,
+        gaps_out = 0,
 
         border_size = 0,
 
@@ -229,7 +229,7 @@ hl.config({
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = true,
+        resize_on_border = false,
 
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = true,

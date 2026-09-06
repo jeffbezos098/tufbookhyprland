@@ -3,18 +3,23 @@
 
   "logo": {
     "type": "file",
-    "source": "/home/hypr/.config/fastfetch/logo.txt",
+    "source": "/home/hypr/.config/fastfetch/logo.txt"
   },
 
   "modules": [
     "title",
+
+    "break",
+
     "uptime",
     "os",
     "kernel",
     "de",
     "wm",
-    "packages",
     "display",
+
+    "break",
+
     "cpu",
     "gpu",
     "memory",
