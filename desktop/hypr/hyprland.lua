@@ -20,7 +20,7 @@ hl.monitor({
     position = "0x0",
     scale    = "2",
     
-     disabled = true,
+    -- disabled = true,
 })
 
 hl.monitor({
@@ -29,7 +29,7 @@ hl.monitor({
     position = "1920x200",
     scale    = "1",
         
-    -- disabled = true,
+     disabled = true,
 
 })
 
@@ -39,7 +39,7 @@ hl.monitor({
     position = "3840x0",
     scale    = "1",
     
-    -- disabled = true,
+     disabled = true,
 
 })
 
