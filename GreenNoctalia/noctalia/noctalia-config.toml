@@ -1,0 +1,148 @@
+[bar.default]
+background_opacity = 0.69999998435378075
+capsule_radius = 4
+center = [ "workspaces" ]
+concave_edge_corners = false
+end = [ "tray", "group:g1" ]
+font_family = "JetBrainsMono Nerd Font Propo"
+margin_ends = 0
+radius = 0
+start = [ "control-center", "group:g2", "battery" ]
+thickness = 28
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "outline"
+    id = "g1"
+    members = [ "notifications", "caffeine", "bluetooth", "volume", "network" ]
+    opacity = 1.0
+    padding = 6.0
+    radius = 4.0
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "outline"
+    id = "g2"
+    members = [ "date", "spacer_2", "clock" ]
+    opacity = 1.0
+    padding = 6.0
+    radius = 4.0
+
+[control_center]
+width = 900
+
+[location]
+address = "Calabogie, Canada"
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-2" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 1018.0
+    output = "eDP-2"
+    placement_height = 1200.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[osd]
+border = false
+position = "top_right"
+position_vertical = "top_right"
+
+[plugins]
+enabled = [ "piero-93/battery-power-management" ]
+
+[shell]
+corner_radius_scale = 0.40000000596046448
+font_family = "JetBrainsMono Nerd Font Propo"
+
+    [shell.animation]
+    speed = 2.0000000298023224
+
+    [shell.launcher]
+    categories = false
+    show_icons = false
+    sort_by_usage = false
+
+    [shell.panel]
+    open_near_click_control_center = true
+
+[theme]
+builtin = "Catppuccin"
+community_palette = "Osaka jade"
+mode = "dark"
+pure_black_dark = true
+source = "community"
+wallpaper_scheme = "m3-content"
+
+[wallpaper.default]
+path = "/home/hypr/Pictures/Wallpapers/osaka-jade-bg-2.jpg"
+
+[wallpaper.last]
+path = "/home/hypr/Pictures/Wallpapers/osaka-jade-bg-2.jpg"
+
+[wallpaper.monitors.eDP-2]
+path = "/home/hypr/Pictures/Wallpapers/osaka-jade-bg-2.jpg"
+
+[[wallpaper.favorite]]
+community_palette = "Osaka jade"
+palette_source = "community"
+path = "/home/hypr/Pictures/Wallpapers/wallhaven-lm638p_3440x1440.png"
+theme_mode = "dark"
+
+[widget.battery]
+display_mode = "none"
+
+[widget.clock]
+font_family = "JetBrainsMono Nerd Font Propo"
+
+[widget.control-center]
+glyph = "settings"
+
+[widget.date]
+format = "{:%a %b %d}"
+
+[widget.spacer_2]
+length = 15
+type = "spacer"
+
+[widget.volume]
+show_label = false
+
+[widget.workspaces]
+active_pill_size = 0.25
+focused_color = "#A1A1A1"
+font_weight = 800
+inactive_pill_size = 0.25
+style = "minimal"

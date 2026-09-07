@@ -1,0 +1,23 @@
+
+{
+
+  "logo": {
+    "type": "file",
+    "source": "/home/hypr/.config/fastfetch/logo.txt"
+  },
+
+  "modules": [
+    "title",
+    "uptime",
+    "os",
+    "kernel",
+    "de",
+    "wm",
+    "display",
+    "cpu",
+    "gpu",
+    "memory",
+    "swap",
+    "disk"
+  ]
+}
