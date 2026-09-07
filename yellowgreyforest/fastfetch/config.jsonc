@@ -1,5 +1,5 @@
+
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
 
   "logo": {
     "type": "file",
@@ -8,18 +8,12 @@
 
   "modules": [
     "title",
-
-    "break",
-
     "uptime",
     "os",
     "kernel",
     "de",
     "wm",
     "display",
-
-    "break",
-
     "cpu",
     "gpu",
     "memory",

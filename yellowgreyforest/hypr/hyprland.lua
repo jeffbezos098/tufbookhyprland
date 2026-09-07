@@ -50,14 +50,15 @@ hl.on("hyprland.start", function()
 
 -- Programs
 hl.exec_cmd("hyprlock")
-hl.exec_cmd("fdm --hidden")
 hl.exec_cmd("kitty --hidden")
+hl.exec_cmd("fdm --hidden")
 hl.exec_cmd("discord --start-minimized")
 
 -- Services
 hl.exec_cmd("systemctl --user start hyprland-session.target")
 hl.exec_cmd("kded6 &")
 hl.exec_cmd("sudo systemctl enable --now tailscaled")
+hl.exec_cmd("hyprctl hyprsunset identity")
 
 -- Clipboard
 hl.exec_cmd("wl-paste --type text --watch cliphist store")
@@ -148,9 +149,9 @@ hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2+"),
 hl.bind("XF86MonBrightnessDown",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 2-"),                  { locked = true, repeating = true })
 
 -- Requires playerctl
-hl.bind("ALT + right",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
-hl.bind("ALT + down", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("ALT + left",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+hl.bind("CTRL + ALT + right",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
+hl.bind("CTRL + ALT + down", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("CTRL + ALT + left",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
 -- Windows
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
@@ -503,7 +504,6 @@ hl.window_rule({
         class = "it.mijorus.gearlever"
     }
 })
-
 
 -- Partition Manager
 hl.window_rule({
