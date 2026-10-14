@@ -1,0 +1,49 @@
+-- Starlink Network Fix
+
+sudo nmcli connection modify "Wireed connection 1" ipv4.dhcp-client-id none
+
+-- systemd services
+
+systemctl --user edit --full --force hyprland-session.target
+
+[Unit]
+Description=Hyprland session
+BindsTo=graphical-session.target
+Wants=graphical-session-pre.target
+After=graphical-session-pre.target
+PropagatesStopTo=graphical-session.target
+
+-- services
+
+sudo pacman -Sy networkmanager fontconfig ttf-jetbrains-mono-nerd tailscale xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprpolkitagent rtkit dmemcg-booster
+
+
+sudo systemctl enable --now rtkit-daemon && sudo systemctl enable --now NetworkManager && sudo systemctl enable --now tailscaled && systemctl --user start xdg-desktop-portal && systemctl --user start xdg-desktop-portal-hyprland && systemctl --user start xdg-desktop-portal-gtk && systemctl --user enable hyprpolkitagent && systemctl --user start hyprpolkitagent && systemctl --user enable --now dmemcg-booster-user
+
+sudo tailscale up
+
+sudo systemctl mask plymouth-poweroff plymouth-quit plymouth-quit-wait plymouth-reboot plymouth-start
+
+sudo nano /etc/mkinitcpio.conf
+remove plymouth from hooks
+
+
+-- regular programs
+
+sudo pacman -S noctalia emby-theater sshfs spotify-launcher yay nvtop btop code dunst ventoy ghostty hyprlock hypridle hyprpicker hyprshot hyprcursor hyprsunset adwaita-icon-theme adwaita-qt6 adwaita-qt5 breeze breeze-gtk playerctl brightnessctl cliphist fastfetch flatpak discord prismlauncher fuse2 goverlay mangojuice kio-admin kio-extras nwg-look qt6ct qt5ct obs-studio orchis-theme partitionmanager pavucontrol waypaper solaar vulkan-tools vlc gwenview wl-clipboard 7zip freedownloadmanager
+
+
+systemctl --user enable --now hypridle && systemctl --user enable --now cliphist
+
+
+-- yay
+yay -Sy qdirstat zen-browser-bin millennium adwaita-dark
+
+-- yay tufbook
+yay -S asusctl rog-control-center ayuz
+
+-- flatpak
+flatpak install bazaar gearlever sysd-manager
+
+-- from website
+private internet accsess
