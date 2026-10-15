@@ -1,0 +1,10 @@
+-- Require --
+require("autostart")
+require("env")
+require("input")
+require("keybinds")
+require("lookandfeel")
+require("monitors")
+require("noctalia").apply_theme()
+require("permissions")
+require("workspace-window-rules")

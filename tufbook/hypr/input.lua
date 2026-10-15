@@ -1,0 +1,36 @@
+-----------
+-- Input --
+
+hl.config({
+    input = {
+        kb_layout  = "us",
+        kb_variant = "",
+        kb_model   = "",
+        kb_options = "",
+        kb_rules   = "",
+        
+        numlock_by_default = true,
+        
+        follow_mouse = 1,
+
+        sensitivity = 0.1,
+
+        touchpad = {
+            natural_scroll = true,
+            scroll_factor = 0.5,
+            disable_while_typing = false,
+        },
+    },
+})
+
+hl.gesture({
+    fingers = 3,
+    direction = "horizontal",
+    action = "workspace"
+})
+
+hl.device({
+    name        = "tkms076-5.x-mouse",
+    sensitivity = -0.5,
+    scroll_factor = 1.25,
+})
