@@ -15,13 +15,12 @@ hl.exec_cmd("mount /mnt/split")
 hl.exec_cmd("hyprlock")
 hl.exec_cmd("kitty --hidden")
 hl.exec_cmd("fdm --hidden")
-hl.exec_cmd("discord --start-minimized")
+-- hl.exec_cmd("discord --start-minimized")
 
 -- Services
 hl.exec_cmd("systemctl --user start hyprland-session.target")
 hl.exec_cmd("kded6 &")
 hl.exec_cmd("sudo systemctl enable --now tailscaled")
---hl.exec_cmd("systemctl --user start plasma-polkit-agent")
 
 -- Clipboard
 hl.exec_cmd("wl-paste --type text --watch cliphist store")

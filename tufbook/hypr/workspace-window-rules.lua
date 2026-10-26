@@ -192,6 +192,14 @@ hl.window_rule({
     }
 })
 
+-- VSCode
+hl.window_rule({
+    opacity = "0.90 0.90",
+    match = {
+        class = "code-oss"
+    }
+})
+
 -- Xenia
 hl.window_rule({
     fullscreen = true,

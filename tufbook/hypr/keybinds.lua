@@ -34,7 +34,7 @@ hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
-hl.bind(mainMod .. " + ALT + mouse:272", hl.dsp.window.resize(), { mouse = true })
+hl.bind("ALT + mouse:272", hl.dsp.window.resize(), { mouse = true })
 hl.bind("mouse:276", hl.dsp.window.drag(),   { mouse = true })
 hl.bind("mouse:275", hl.dsp.window.resize(), { mouse = true })
 
@@ -45,7 +45,7 @@ for i = 1, 10 do
 end
 
 -- Program Lanuch
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("zen-browser"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("brave-origin"))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("dolphin"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("steam"))
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("steam steam://open/gamepadui"))
